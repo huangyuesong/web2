@@ -18,22 +18,20 @@
                 <thead>
                     <tr>
                     <td>商品名称</td>
-                    <td>单价</td>
+                    <td>单价(元)</td>
                     <td>数量</td>
                     <td>状态</td>
                     <td>操作</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                     <td>朗姆芝士</td>
                     <td>86.0</td>
                     <td>1</td>
                     <td>完成</td>
-                    <td ><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#gridSystemModal">
-    Launch demo modal
-  </button></td>
-                    </tr>
+                    <td ><a href="javascript:">评价</a></td>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -80,10 +78,36 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.dataTables.min.js"></script>
-        <script src="js/dataTables.bootstrap.min.js"></script>
-        <script src="js/index.js"></script>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+<script>
+    $(function() {
+        $.post('/clientOrder', {}, function(data) {
+            $($('tbody').children()[0]).remove();
+
+            data.orderInfo.map(function(order) {
+                var status = order.order_status === 0 ? '未完成' : '完成';
+
+                var tr = $('<tr></tr>');
+                tr.append( $('<td></td>').text(order.product_name) );
+                tr.append( $('<td></td>').text(order.price.toFixed(2)) );
+                tr.append( $('<td></td>').text(order.count) );
+                tr.append( $('<td></td>').text(status) );
+
+                if(order.commented) {
+                  tr.append( $('<td></td>').append( $('<a></a>').text('已评价').attr('href', 'javascript:').css('color', 'gray').css('cursor', 'default').css('text-decoration', 'none') ) );
+                } else {
+                  tr.append( $('<td></td>').append( $('<a></a>').text('去评价').attr('id', order.product_id).css('cursor', 'pointer') ) );
+                }
+                
+                $('tbody').append(tr);
+            });
+        });
+    });
+</script>
 </body>
 </html>

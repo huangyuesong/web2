@@ -12,7 +12,7 @@ function Product(product) {
 	this.product_price = product.product_price;
 };
 
-Client.get = function(callback) {
+Product.get = function(callback) {
 	var sql = [
 		'select *',
 		'from products',

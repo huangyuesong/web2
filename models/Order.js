@@ -6,18 +6,16 @@ function Order(order) {
 	this.buy_time = order.buy_time;
 	this.order_status = order.order_status;// 0: 未完成, 1: 完成
 	this.price = order.price;
+	this.count = order.count;
 };
 
-Order.get = function(client_id, callback) {
+Order.get = function(callback) {
 	var sql = [
 		'select *',
 		'from clients_order_list',
-		'where client_id = ?',
 	].join(' ');
 
-	var inserts = [client_id];
-
-	conn.query(sql, inserts, function(err, rows, fields) {
+	conn.query(sql, function(err, rows, fields) {
 	  if (err) throw err;
 
 	  return callback(rows);

@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+<title>西施DIY蛋糕店</title>
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link type="text/css" href="css/style.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+	<div class="left-head">
+		<p class="name">西施蛋糕店</p>
+		<p class="hidden-xs public ">DIY专属于你的个人蛋糕！</p>
+	</div>
+	<div class="right-head">
+		<a>个人中心</a>
+		<p>购物车<span>n</span>件</span></p>
+	</div>
+	</header>
+	
+	<div class="main_visual">
+	<div class="flicking_con">
+		<a href="#">1</a>
+		<a href="#">2</a>
+		<a href="#">3</a>
+		<a href="#">4</a>
+		<a href="#">5</a>
+	</div>
+	<div class="main_image">
+		<ul>
+			<li><img src="images/img_main_1.jpg" class="img_3"></span></li>
+			<li><img src="images/img_main_1.jpg" class="img_4"></span></li>
+			<li><img src="images/img_main_1.jpg" class="img_1"></span></li>
+			<li><img src="images/img_main_1.jpg" class="img_2"></span></li>
+			<li><img src="images/img_main_1.jpg" class="img_5"></span></li>
+		</ul>
+		<a href="javascript:;" id="btn_prev"></a>
+		<a href="javascript:;" id="btn_next"></a>
+	</div>
+</div>
+	
+	<article>
+		<section class="container-fluid content">
+			<p class="title-con">现货专区</p>
+			<div class="row">
+				<div class="col-xs-6 col-sm-3 col-md-4 col-lg-3 contain-con">
+					<img src="images/cake.jpg">
+					<p>今日特惠专区</p>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-4 col-lg-3 contain-con">
+					<img src="images/cake.jpg">
+					<p>会员折扣专区</p>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-4 col-lg-3 contain-con">
+					<img src="images/cake.jpg">
+					<p>早餐专区</p>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 contain-con">
+					<img src="images/cake.jpg">
+					<p>点心专区</p>
+				</div>
+			</div>
+		
+		</section>
+
+		<section class="container-fluid content">
+			<p class="title-con">预定专区</p>
+			<div class="row">
+				<div class="col-xs-6 col-sm-3 col-md-4 col-lg-3 contain-con">
+					<img src="images/cake.jpg">
+					<p>奶油·芝士系列</p>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-4 col-lg-3 contain-con">
+					<img src="images/cake.jpg">
+					<p>巧克力系列</p>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-4 col-lg-3 contain-con">
+					<img src="images/cake.jpg">
+					<p>冰淇淋系列</p>
+				</div>
+				<div class="col-xs-6 col-sm-3 col-md-3 col-lg-3 contain-con">
+					<img src="images/cake.jpg">
+					<p>私人订制</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="page-pro-list">
+			<div>
+				<a>上一页</a>
+				<a>下一页</a>
+			</div>
+		</section>
+	</article>
+	
+	<footer>
+	    <div class="container-fluid">
+	    	<div class="row">
+	    		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+	    		   <p>
+	    		   		<span>联系我们</span>
+	               </p>
+	    		</div>
+	    		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+	    			<p>
+						<span>邮箱:&nbsp;xxxxxx@xxx.com </span>
+						<span>电话:&nbsp;xxx</span>	
+					</p>
+	    		</div>
+	    		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	    			<p>
+						<span>版权所有:&nbsp;西施DIY蛋糕店</span>
+					</p>
+	    		</div>
+	    	</div>
+	    </div>
+	</footer>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.touchSlider.js"></script>
+	<script type="text/javascript">
+$(document).ready(function(){
+
+	$(".main_visual").hover(function(){
+		$("#btn_prev,#btn_next").fadeIn()
+	},function(){
+		$("#btn_prev,#btn_next").fadeOut()
+	});
+	
+	$dragBln = false;
+	
+	$(".main_image").touchSlider({
+		flexible : true,
+		speed : 200,
+		btn_prev : $("#btn_prev"),
+		btn_next : $("#btn_next"),
+		paging : $(".flicking_con a"),
+		counter : function (e){
+			$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+		}
+	});
+	
+	$(".main_image").bind("mousedown", function() {
+		$dragBln = false;
+	});
+	
+	$(".main_image").bind("dragstart", function() {
+		$dragBln = true;
+	});
+	
+	$(".main_image a").click(function(){
+		if($dragBln) {
+			return false;
+		}
+	});
+	
+	timer = setInterval(function(){
+		$("#btn_next").click();
+	}, 5000);
+	
+	$(".main_visual").hover(function(){
+		clearInterval(timer);
+	},function(){
+		timer = setInterval(function(){
+			$("#btn_next").click();
+		},5000);
+	});
+	
+	$(".main_image").bind("touchstart",function(){
+		clearInterval(timer);
+	}).bind("touchend", function(){
+		timer = setInterval(function(){
+			$("#btn_next").click();
+		}, 5000);
+	});
+	
+});
+</script>
+	
+	
+</body>
+</html>

@@ -1,0 +1,155 @@
+body{
+	color:#996666;
+	font-family: "Microsoft YaHei"; 
+	font-size: 14px;
+}
+
+a{
+	color:#996666;
+	font-family: "Microsoft YaHei"; 
+}
+
+p{
+	margin:0;
+}
+
+header{
+	background: #FFCC33;
+    overflow: hidden;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+header span{
+	margin: 0 5px;
+	color: #FF0000;
+}
+
+footer {
+	margin-top: 30px;
+	background:#F2F2F2;
+	text-align: center;
+}
+
+footer p > span{
+	margin: 0 10px;
+}
+
+
+.content-pro-list{
+	margin-bottom: 10px;
+}
+
+.content-pro-list p{
+	background: #F8F8F8;
+}
+
+.content-pro-list img{
+	width:100%;
+}
+
+.title-pro-list{
+	color:#FF9966;
+}
+
+.price-pro-list{
+	color:#996666;
+}
+
+.page-pro-list a{
+	border: 1px solid #996666;
+	padding: 5px;
+	margin:10px;
+	float:right;
+}
+
+.img-pro-detail img{
+	width:100%;
+}
+
+.desc-pro-detail{
+}
+
+.desc-pro-detail p{
+    text-align: center;
+    margin: 7% auto;
+}
+
+.desc-pro-detail input{
+	display: none;
+}
+
+.desc-pro-detail label{
+	border: 1px solid #996666;
+    padding: 5px;
+    display: block;
+    min-width: 90px;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.form-pro-dec{
+	width:49%;
+	margin:10px 0;
+	display: inline-block;
+}
+
+.shopping-cart-pro-dec{
+	background:#FFCC33;
+	width:60%;
+	margin:0 auto;
+}
+
+.text-dec{
+	overflow: hidden;
+    margin: 20px;
+}
+
+.tni-per-cen{
+	padding:10px 0;
+}
+
+.tni-per-cen img{
+	display: block;
+	margin: 0 auto;
+	width: 30%;
+}
+
+.name-per-cen{
+	text-align:center;
+}
+
+.left-tni-per-con{
+	width:30%;
+	display: inline-block;
+	text-align: right
+}
+
+.right-tni-per-con{
+	width: 68%;
+	display: inline-block;
+	text-align: left;
+}
+
+.link-per-con{
+	display: block;
+	color:#996666;
+	border: 1px solid #996666;
+	margin:20px 0;
+}
+
+.tb-per-ord{
+	width: 100%;
+}
+
+.form_login{
+	width: 50%;
+	min-width: 300px;
+	margin:auto;
+	margin-top: 30px;
+}
+
+	

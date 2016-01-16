@@ -1,6 +1,6 @@
 $(function() {
     $('.dataTable').dataTable({
-        "dom": "<'yearReport'<'row'<'report-search clearfix'f>r><'#moon'><'table-scrollable dt-year-final-paroll't><'row'<'report-extra'i><'report-pages'p>>>",
+        "dom": "<'row table-row-pad'<'report-search clearfix'f>r><'table-scrollable't><'row table-row-pad'<'report-extra'i><'report-pages'p>>",
         "order": [],
         "bStateSave": true,
         "language": {
@@ -29,3 +29,4 @@ $(function() {
         }
     });
 });
+

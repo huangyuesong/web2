@@ -7,6 +7,4 @@ var conn = mysql.createConnection({
   port: 3306
 });
 
-conn.connect();
-
 module.exports = conn;

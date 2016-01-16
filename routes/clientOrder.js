@@ -17,7 +17,7 @@ router.post('/', function(req, res, next) {
   	res.redirect('/login');
   }
 
-  User.get(user_name, function(users) {
+  User.getByUserName(user_name, function(users) {
   	var user = new User(users[0]);
   	var client_id = user.user_id;
 

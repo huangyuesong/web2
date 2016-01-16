@@ -7,6 +7,7 @@ function Order(order) {
 	this.order_status = order.order_status;// 0: 未完成, 1: 完成
 	this.price = order.price;
 	this.count = order.count;
+	this.commented = order.commented;
 };
 
 Order.get = function(callback) {

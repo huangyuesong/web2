@@ -7,7 +7,7 @@ function User(user) {
 	this.user_type = user.user_type;
 };
 
-User.get = function(user_name, callback) {
+User.getByUserName = function(user_name, callback) {
 	var sql = [
 		'select *',
 		'from users',

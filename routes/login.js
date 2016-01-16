@@ -14,7 +14,7 @@ router.post('/', function(req, res, next) {
 	var username = req.body.username;
 	var password = req.body.password;
 
-	User.get(username, function(users) {
+	User.getByUserName(username, function(users) {
 		var user = new User(users[0]);
 		if(password === user.user_password) {
 			res.cookie('user_name', user.user_name);
@@ -28,7 +28,7 @@ router.post('/', function(req, res, next) {
 				res.json({
 					url: '/clientCenter',
 				});
-			} else if(user.user_type === 'business') {
+			} else if(user.user_type === 'seller') {
 				res.json({
 					url: '/login',
 				});

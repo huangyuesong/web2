@@ -6,7 +6,7 @@ function Client(client) {
 	this.client_address = client.client_address;
 	this.client_phone = client.client_phone;
 	this.client_level = client.client_level;
-	this.client_created_time = client.client_created_time;
+	this.client_create_time = client.client_create_time;
 };
 
 Client.get = function(callback) {

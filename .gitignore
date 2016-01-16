@@ -27,12 +27,4 @@ build/Release
 node_modules
 
 # Debug log from npm
-npm-debug.log
-
-bin
-
-config
-
-node_modules
-
-package.json
+npm-debug.logsssss

@@ -10,30 +10,82 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <link href="css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
-<link href="css/other.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
 </head>
 <body>
 	
-    <article>
-    	<section class="container-fluid">
-    		<table  class="tb-per-ord dataTable">
-    			<thead>
-    				<tr>
-    				<td>产品名称</td>
-    				<td>创建时间</td>
-    				<td>修改时间</td>
-    				</tr>
-    			</thead>
-    			<tbody>
-    				<tr>
-    				<td>朗姆芝士</td>
-    				<td>YYMMDDHHMMSS</td>
-    				<td>YYMMDDHHMMSS</td>
-    				</tr>
-    			</tbody>
-    		</table>
-		</section>
-		</article>
+   <div class="container-fluid content-top">
+            <table  class="tb-per-ord dataTable">
+                <thead>
+                    <tr>
+                    <th>产品类型</td>
+                    <th>产品名称</td>
+                    <th>产品描述</td>
+                    <th>生产厂家</td>
+                    <th>生产日期</td>
+                    <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>服装</td>
+                    <td>HM牛仔裤</td>
+                    <td><p class="busi-pro-dec">啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p></td>
+                    <td>广东美丽服装厂</td>
+                    <td>20160117</td>
+                    <td ><button class="btn btn-conment btn-margin" data-toggle="modal" href="#gridSystemModalLabel">修改</button><button class="btn btn-conment btn-margin">删除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" id="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">修改产品信息</h4>
+      </div>
+      <div class="modal-body">
+<form class="form-horizontal form_login">
+  <div class="form-group">
+    <label for="bus-product-type" class="col-sm-3 control-label">产品类型：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bus-product-name" class="col-sm-3 control-label">产品名称：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-name" value="18677615595">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="bus-product-company" class="col-sm-3 control-label">生产厂家：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+    </div>
+  </div>
+   <div class="form-group">
+    <label for="bus-product-date" class="col-sm-3 control-label">生产日期：</label>
+    <div class="col-sm-8">
+      <input type="date" class="form-control" id="bus-product-date" value="18677615595">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="product-conment" class="col-sm-3 control-label">产品描述：</label>
+    <div class="col-sm-8">
+    <textarea class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary btn-conment">提交评价</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/jquery.dataTables.min.js"></script>

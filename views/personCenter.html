@@ -5,52 +5,54 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
 
-<title>西施DIY蛋糕店</title>
+<title>商家信息</title>
 <link href="css/reset.css" rel="stylesheet">
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/other.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
 </head>
 <body>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">商家信息</a></li>
+  <li role="presentation"><a href="#">产品列表</a></li>
+</ul>
 
-
-    	<div class="container-fluid">
-    		<div class="row">
-    			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 tni-per-cen">
-    				<p class="name-per-cen" style="text-align:center;">用户名</p>
-    			</div>
-    			<div  class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-    				<p class="left-tni-per-con">用户名：</p>
-    				<p class="right-tni-per-con">xxx</p>
-    				<p class="left-tni-per-con">手机号：</p>
-    				<p class="right-tni-per-con">186xxxxxx</p>
-    				<p class="left-tni-per-con">地址：</p>
-    				<p class="right-tni-per-con">xxxxxxxxx</p>
-    			</div>
-    		</div>
-		</div>
-
-		<footer>
-	    <div class="container-fluid">
-	    	<div class="row">
-	    		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-	    		   <p>
-	    		   		<span>联系我们</span>
-	               </p>
-	    		</div>
-	    		<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
-	    			<p>
-						<span>邮箱:&nbsp;xxxxxx@xxx.com </span>
-						<span>电话:&nbsp;xxx</span>	
-					</p>
-	    		</div>
-	    		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	    			<p>
-						<span>版权所有:&nbsp;西施DIY蛋糕店</span>
-					</p>
-	    		</div>
-	    	</div>
-	    </div>
-	</footer>
+<form class="form-horizontal form_login content-top">
+  <div class="form-group">
+    <label for="business-name" class="col-sm-offset-2 col-sm-2 control-label">商家名称：</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="business-name" disabled="disabled" value="蛋糕店">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="business-level" class="col-sm-offset-2 col-sm-2 control-label" value="旗舰店/一般/小商户">商家级别：</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="password" disabled="disabled">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="business-phone" class="col-sm-offset-2 col-sm-2 control-label">客服号码：</label>
+    <div class="col-sm-4">
+      <input type="phone" class="form-control" id="password" value="18677615595">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="business-address" class="col-sm-offset-2 col-sm-2 control-label">注册地址：</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="business-address" disabled="disabled" value="北京市海淀区西土城路10号北京邮电大学学十三">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="date" class="col-sm-offset-2 col-sm-2 control-label">创建时间：</label>
+    <div class="col-sm-4">
+      <input type="date" class="form-control" id="password" disabled="disabled">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-6">
+      <button type="submit" class="btn btn-conment">保存修改</button>
+    </div>
+  </div>
+</form>
 	
 </body>
 </html>

@@ -7,9 +7,10 @@
 table.dataTable{
 	border: 0 !important;
 }
-table.dataTable th, table.dataTable thead td{
+table.dataTable th{
 	background: #BCD2EE;
 	color:#fff;
+	border-bottom: 1px solid #BCD2EE !important;
 }
 
 table.dataTable td{
@@ -26,6 +27,9 @@ table.dataTable td{
 .table-row-pad{
 	padding:0 24px;
 }
+.btn-margin{
+	margin:0 10px;
+}
 .btn-conment{
 	border:0;
 	background:#BCD2EE;
@@ -34,4 +38,11 @@ table.dataTable td{
 .c-p-pro{
 	padding-top: 7px;
     margin-bottom: 0;
+}
+.busi-pro-dec{
+	padding: 8px 10px;
+	max-width:300px;
+	white-space:nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+<title>用户信息列表</title>
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+<body>
+  <ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">用户信息</a></li>
+  <li role="presentation"><a href="#">商家信息</a></li>
+  <li role="presentation"><a href="#">产品信息</a></li>
+</ul>
+  <div class="add">
+        <a class="btn btn-conment" href="#add" data-toggle="modal" ><span class="glyphicon glyphicon-plus">增加用户</a>
+    </div>
+
+     <div class="container-fluid content-top">
+            <table  class="tb-per-ord dataTable">
+                <thead>
+                    <tr>
+                    <th>用户类型</th>
+                    <th>用户名</th>
+                    <th>用户密码</th>
+                    <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>商品卖家</td>
+                    <td>HM</td>
+                    <td>123456</td>
+                    <td ><button class="btn btn-conment btn-margin" data-toggle="modal" href="#gridSystemModalLabel">修改</button><button class="btn btn-conment btn-margin">删除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+                <div class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" id="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">修改用户信息</h4>
+      </div>
+      <div class="modal-body">
+<form class="form-horizontal form_login">
+  <div class="form-group">
+    <label for="bus-product-type" class="col-sm-3 control-label">用户类型：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bus-product-name" class="col-sm-3 control-label">用户名：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-name" value="18677615595">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="bus-product-company" class="col-sm-3 control-label">密码：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+    </div>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary btn-conment">提交修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" id="add">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">增加用户</h4>
+      </div>
+      <div class="modal-body">
+<form class="form-horizontal form_login">
+  <div class="form-group">
+    <label for="bus-product-type" class="col-sm-3 control-label">用户类型：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bus-product-name" class="col-sm-3 control-label">用户名：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-name" value="18677615595">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="bus-product-company" class="col-sm-3 control-label">密码：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+    </div>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary btn-conment">确认增加</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+</html>

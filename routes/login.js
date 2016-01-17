@@ -7,7 +7,7 @@ router.get('/', function(req, res, next) {
 	res.clearCookie('user_name');
 	res.clearCookie('user_type');
 
-  res.render('productList');
+  res.render('login');
 });
 
 router.post('/', function(req, res, next) {
@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
 				});
 			} else if(user.user_type === 'customer') {
 				res.json({
-					url: '/clientCenter',
+					url: '/clientOrder',
 				});
 			} else if(user.user_type === 'seller') {
 				res.json({

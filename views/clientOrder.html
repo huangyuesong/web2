@@ -61,7 +61,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">提交评价</button>
+        <button type="button" class="btn btn-primary">提交评价</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -72,7 +72,7 @@
 <script src="js/jquery.dataTables.min.js"></script>
 <script src="js/dataTables.bootstrap.min.js"></script>
 <script src="js/index.js"></script>
-<!-- /*<script>
+<script>
     $(function() {
         $.post('/clientOrder', {}, function(data) {
             $($('tbody').children()[0]).remove();
@@ -89,14 +89,19 @@
                 if(order.commented) {
                   tr.append( $('<td></td>').append( $('<a></a>').text('已评价').attr('href', 'javascript:').css('color', 'gray').css('cursor', 'default').css('text-decoration', 'none') ) );
                 } else {
-                  tr.append( $('<td></td>').append( $('<a></a>').text('去评价').attr('id', order.product_id).css('cursor', 'pointer') ) );
+                  // tr.append( $('<td></td>').append( $('<a></a>').text('去评价').attr('id', order.product_id).css('cursor', 'pointer') ) );
+                  tr.append( $('<td></td>').append( $('<button class="btn btn-conment" data-toggle="modal" href="#gridSystemModalLabel">评价</button>').attr('id', order.product_id) ) );
                 }
                 
                 $('tbody').append(tr);
+
+                $('.btn-conment').on('click', function(e) {
+                  
+                });
             });
         });
     });
-</script>*/ -->
+</script>
 <script type="text/javascript">
     /*先取弹窗中Input框相应的值，打开动画，发送ajax请求，成功or失败，关闭动画，展示成功或失败信息*/
   

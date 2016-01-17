@@ -26,3 +26,12 @@ table.dataTable td{
 .table-row-pad{
 	padding:0 24px;
 }
+.btn-conment{
+	border:0;
+	background:#BCD2EE;
+	color:#fff;
+}
+.c-p-pro{
+	padding-top: 7px;
+    margin-bottom: 0;
+}

@@ -25,13 +25,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr>
+                    <tr>
                     <td>朗姆芝士</td>
                     <td>86.0</td>
                     <td>1</td>
                     <td>完成</td>
-                    <td ><a href="javascript:">评价</a></td>
-                    </tr> -->
+                    <td ><button class="btn btn-default btn-conment" data-toggle="modal" href="#gridSystemModalLabel">评价</button></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -41,39 +41,27 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="gridSystemModalLabel">评价订单</h4>
       </div>
       <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-4">.col-md-4</div>
-            <div class="col-md-4 col-md-offset-4">.col-md-4 .col-md-offset-4</div>
-          </div>
-          <div class="row">
-            <div class="col-md-3 col-md-offset-3">.col-md-3 .col-md-offset-3</div>
-            <div class="col-md-2 col-md-offset-4">.col-md-2 .col-md-offset-4</div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3">.col-md-6 .col-md-offset-3</div>
-          </div>
-          <div class="row">
-            <div class="col-sm-9">
-              Level 1: .col-sm-9
-              <div class="row">
-                <div class="col-xs-8 col-sm-6">
-                  Level 2: .col-xs-8 .col-sm-6
-                </div>
-                <div class="col-xs-4 col-sm-6">
-                  Level 2: .col-xs-4 .col-sm-6
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+<form class="form-horizontal form_login">
+  <div class="form-group">
+    <label for="name" class="col-sm-3 control-label">产品名称：</label>
+    <div class="col-sm-8">
+      <p class="c-p-pro">郎姆芝士</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password" class="col-sm-3 control-label">评价：</label>
+    <div class="col-sm-8">
+    <textarea class="form-control" rows="3"></textarea>
+    </div>
+  </div>
+</form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary btn-conment">提交评价</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -84,7 +72,7 @@
 <script src="js/jquery.dataTables.min.js"></script>
 <script src="js/dataTables.bootstrap.min.js"></script>
 <script src="js/index.js"></script>
-<script>
+<!-- /*<script>
     $(function() {
         $.post('/clientOrder', {}, function(data) {
             $($('tbody').children()[0]).remove();
@@ -108,6 +96,10 @@
             });
         });
     });
+</script>*/ -->
+<script type="text/javascript">
+    /*先取弹窗中Input框相应的值，打开动画，发送ajax请求，成功or失败，关闭动画，展示成功或失败信息*/
+  
 </script>
 </body>
 </html>

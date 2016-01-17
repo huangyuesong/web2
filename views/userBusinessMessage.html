@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+<title>用户信息列表</title>
+<link href="css/reset.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="css/index.css" rel="stylesheet">
+<body>
+  <ul class="nav nav-tabs">
+  <li role="presentation"><a href="#">用户信息</a></li>
+  <li role="presentation" class="active"><a href="#">商家信息</a></li>
+  <li role="presentation"><a href="#">产品信息</a></li>
+</ul>
+  <div class="add">
+        <a class="btn btn-conment" href="#add" data-toggle="modal" ><span class="glyphicon glyphicon-plus">新建商家</a>
+    </div>
+
+     <div class="container-fluid content-top">
+            <table  class="tb-per-ord dataTable">
+                <thead>
+                    <tr>
+                    <th>商家名称</th>
+                    <th>商家级别</th>
+                    <th>商家客服号码</th>
+                    <th>商家注册地址</th>
+                    <th>商家创建时间</th>
+                    <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td>HM</td>
+                    <td>旗舰店</td>
+                    <td>18677615595</td>
+                    <td><p class="busi-pro-dec">啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦啦</p></td>
+                    <td>20160117</td>
+                    <td ><button class="btn btn-conment btn-margin" data-toggle="modal" href="#gridSystemModalLabel">修改</button><button class="btn btn-conment btn-margin">删除</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+                <div class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" id="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">修改商家信息</h4>
+      </div>
+      <div class="modal-body">
+<form class="form-horizontal form_login content-top">
+  <div class="form-group">
+    <label for="business-name" class="col-sm-3 control-label">商家名称：</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="business-name" value="蛋糕店">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="business-level" class="col-sm-3 control-label" value="旗舰店/一般/小商户">商家级别：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="business-level">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="business-phone" class="col-sm-3 control-label">客服号码：</label>
+    <div class="col-sm-8">
+      <input type="phone" class="form-control" id="business-phone" value="18677615595">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="business-address" class="col-sm-3 control-label">注册地址：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="business-address" value="北京市海淀区西土城路10号北京邮电大学学十三">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="date" class="col-sm-3 control-label">创建时间：</label>
+    <div class="col-sm-8">
+      <input type="date" class="form-control" id="password">
+    </div>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary btn-conment">提交修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" role="dialog" aria-labelledby="gridSystemModalLabel" id="add">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">增加商家</h4>
+      </div>
+      <div class="modal-body">
+<form class="form-horizontal form_login content-top">
+  <div class="form-group">
+    <label for="business-name" class="col-sm-3 control-label">商家名称：</label>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" id="business-name" value="蛋糕店">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="business-level" class="col-sm-3 control-label" value="旗舰店/一般/小商户">商家级别：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="business-level">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="business-phone" class="col-sm-3 control-label">客服号码：</label>
+    <div class="col-sm-8">
+      <input type="phone" class="form-control" id="business-phone" value="18677615595">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="business-address" class="col-sm-3 control-label">注册地址：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="business-address" value="北京市海淀区西土城路10号北京邮电大学学十三">
+    </div>
+  </div>
+    <div class="form-group">
+    <label for="date" class="col-sm-3 control-label">创建时间：</label>
+    <div class="col-sm-8">
+      <input type="date" class="form-control" id="password">
+    </div>
+  </div>
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary btn-conment">确认增加</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.dataTables.min.js"></script>
+    <script src="js/dataTables.bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+
+</body>
+</html>

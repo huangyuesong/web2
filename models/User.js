@@ -7,14 +7,14 @@ function User(user) {
 	this.user_type = user.user_type;
 };
 
-User.getByUserName = function(user_name, callback) {
+User.getByUserId = function(user_id, callback) {
 	var sql = [
 		'select *',
 		'from users',
-		'where user_name = ?',
+		'where user_id = ?',
 	].join(' ');
 
-	var inserts = [user_name];
+	var inserts = [user_id];
 
 	conn.query(sql, inserts, function(err, rows, fields) {
 	  if (err) throw err;

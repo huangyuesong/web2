@@ -5,7 +5,7 @@ function Appraise(appraise) {
 	this.product_id = appraise.product_id;
 	this.appraise_content = appraise.appraise_content;
 	this.appraise_time = appraise.appraise_time;
-	this.appraise_image = appraise.appraise_image;
+	this.appraise_img = appraise.appraise_img;
 };
 
 Appraise.get = function(callback) {
@@ -20,5 +20,21 @@ Appraise.get = function(callback) {
 	  return callback(rows);
 	});
 };
+
+Appraise.add = function(appraise, callback) {
+	var sql = 'insert into appraise set ?';
+
+	var inserts = {
+		client_id: appraise.client_id,
+		product_id: appraise.product_id,
+		appraise_content: appraise.appraise_content,
+	};
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+}
 
 module.exports = Appraise;

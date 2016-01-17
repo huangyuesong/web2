@@ -11,13 +11,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  var user_name = req.cookies.user_name;
+  var user_id = req.cookies.user_id;
 
-  if(!user_name) {
-  	res.redirect('/login');
-  }
-
-  User.getByUserName(user_name, function(users) {
+  User.getByUserId(user_id, function(users) {
   	var user = new User(users[0]);
   	var client_id = user.user_id;
 

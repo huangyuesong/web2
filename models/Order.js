@@ -1,6 +1,7 @@
 var conn = require('../config/mysql');
 
 function Order(order) {
+	this.order_id = order.order_id;
 	this.client_id = order.client_id;
 	this.product_id = order.product_id;
 	this.buy_time = order.buy_time;
@@ -22,5 +23,21 @@ Order.get = function(callback) {
 	  return callback(rows);
 	});
 };
+
+Order.comment = function(order_id, callback) {
+	var sql = [
+		'update clients_order_list',
+		'set commented = 1',
+		'where order_id = ?',
+	].join(' ');
+
+	var inserts = [Number(order_id)];
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+}
 
 module.exports = Order;

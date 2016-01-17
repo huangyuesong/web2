@@ -17,11 +17,11 @@
             <table  class="tb-per-ord dataTable">
                 <thead>
                     <tr>
-                    <th>商品名称</td>
-                    <th>单价(元)</td>
-                    <th>数量</td>
-                    <th>状态</td>
-                    <th>操作</td>
+                    <th>商品名称</th>
+                    <th>单价(元)</th>
+                    <th>数量</th>
+                    <th>状态</th>
+                    <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,7 +54,7 @@
   <div class="form-group">
     <label for="product-conment" class="col-sm-3 control-label">评价：</label>
     <div class="col-sm-8">
-    <textarea class="form-control" rows="3"></textarea>
+    <textarea class="form-control comment-content" rows="3"></textarea>
     </div>
   </div>
 </form>
@@ -87,17 +87,37 @@
                 tr.append( $('<td></td>').text(status) );
 
                 if(order.commented) {
-                  tr.append( $('<td></td>').append( $('<a></a>').text('已评价').attr('href', 'javascript:').css('color', 'gray').css('cursor', 'default').css('text-decoration', 'none') ) );
+                  tr.append( $('<td></td>').append( $('<button class="btn btn-conment" data-toggle="modal" href="#gridSystemModalLabel" disabled>已评价</button>') ) );
                 } else {
-                  // tr.append( $('<td></td>').append( $('<a></a>').text('去评价').attr('id', order.product_id).css('cursor', 'pointer') ) );
-                  tr.append( $('<td></td>').append( $('<button class="btn btn-conment" data-toggle="modal" href="#gridSystemModalLabel">评价</button>').attr('id', order.product_id) ) );
+                  tr.append( $('<td></td>').append( $('<button class="btn btn-conment" data-toggle="modal" href="#gridSystemModalLabel" data-name="' + order.product_name + '" data-order-id="' + order.order_id + '" data-product-id="' + order.product_id + '">去评价</button>') ) );
                 }
                 
                 $('tbody').append(tr);
+            });
 
-                $('.btn-conment').on('click', function(e) {
-                  
-                });
+            $('.btn-conment').on('click', function(e) {
+              var order_id = $(e.target).data('order-id');
+              var product_id = $(e.target).data('product-id');
+              var product_name = $(e.target).data('name');
+
+              $('.c-p-pro').text(product_name);
+              $('.btn-primary').data('order-id', order_id);
+              $('.btn-primary').data('product-id', product_id);
+            });
+
+            $('.btn-primary').on('click', function(e) {
+              var order_id = $(e.target).data('order-id');
+              var product_id = $(e.target).data('product-id');
+              var comment_content = $('.comment-content').val();
+
+              $.post('/comment', {
+                order_id: order_id,
+                product_id: product_id,
+                comment_content: comment_content,
+              }, function(data) {
+                alert('评价成功');
+                location.reload();
+              });
             });
         });
     });

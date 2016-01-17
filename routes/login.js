@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 				});
 			} else if(user.user_type === 'seller') {
 				res.json({
-					url: '/login',
+					url: '/businessCenter',
 				});
 			}
 		} else {

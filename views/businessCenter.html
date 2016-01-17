@@ -13,10 +13,10 @@
 <body>
 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="#">商家信息</a></li>
-  <li role="presentation"><a href="#">产品列表</a></li>
+  <li role="presentation"><a href="/businessProductList">产品列表</a></li>
 </ul>
 
-<form class="form-horizontal form_login content-top">
+<form class="form-horizontal form_login content-top" action="/businessCenter/saveChange" method="post">
   <div class="form-group">
     <label for="business-name" class="col-sm-offset-2 col-sm-2 control-label">商家名称：</label>
     <div class="col-sm-4">
@@ -32,7 +32,7 @@
   <div class="form-group">
     <label for="business-phone" class="col-sm-offset-2 col-sm-2 control-label">客服号码：</label>
     <div class="col-sm-4">
-      <input type="phone" class="form-control" id="business-phone" value="18677615595">
+      <input type="phone" class="form-control" id="business-phone" name="business-phone" value="18677615595">
     </div>
   </div>
     <div class="form-group">
@@ -44,7 +44,7 @@
     <div class="form-group">
     <label for="date" class="col-sm-offset-2 col-sm-2 control-label">创建时间：</label>
     <div class="col-sm-4">
-      <input type="date" class="form-control" id="password" disabled="disabled">
+      <input type="text" class="form-control" id="business-create-time" disabled="disabled">
     </div>
   </div>
   <div class="form-group">
@@ -53,6 +53,18 @@
     </div>
   </div>
 </form>
-	
+
+<script src="js/jquery.min.js"></script>
+<script>
+  $(function() {
+    $.post('/businessCenter', {}, function(data) {
+      $('#business-name').val(data.business_name);
+      $('#business-level').val(data.business_level);
+      $('#business-phone').val(data.business_phone);
+      $('#business-address').val(data.business_address);
+      $('#business-create-time').val(data.business_create_time);
+    });
+  });
+</script>
 </body>
 </html>

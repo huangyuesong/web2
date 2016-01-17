@@ -9,13 +9,32 @@ function Business(business) {
 	this.business_level = business.business_level;
 };
 
-Business.get = function(callback) {
+Business.getByBusinessId = function(business_id, callback) {
 	var sql = [
 		'select *',
 		'from business',
+		'where business_id = ?'
 	].join(' ');
 
-	conn.query(sql, function(err, rows, fields) {
+	var inserts = [business_id];
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
+Business.savePhoneChange = function(business_id, business_phone, callback) {
+	var sql = [
+		'update business',
+		'set business_phone = ?',
+		'where business_id = ?'
+	].join(' ');
+
+	var inserts = [business_phone, business_id];
+
+	conn.query(sql, inserts, function(err, rows, fields) {
 	  if (err) throw err;
 
 	  return callback(rows);

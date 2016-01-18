@@ -22,7 +22,7 @@
     </div>
 
    <div class="container-fluid content-top">
-            <table  class="tb-per-ord dataTable">
+            <table  class="tb-per-ord dataTable product-list">
                 <thead>
                     <tr>
                     <th>产品类型</th>
@@ -35,12 +35,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                    <td>视频</td>
+                    <td>食品</td>
                     <td>老坛酸菜牛肉面</td>
                     <td><p class="busi-pro-dec">老坛酸菜牛肉面</p></td>
                     <td>康师傅</td>
                     <td>2016-01-17</td>
-                    <td ><button class="btn btn-conment btn-margin" data-toggle="modal" href="#gridSystemModalLabel">修改</button><button class="btn btn-conment btn-margin">删除</button></td>
+                    <td ><button class="btn btn-conment btn-margin btn-change" data-toggle="modal" href="#gridSystemModalLabel">修改</button><button class="btn btn-conment btn-margin btn-delete">删除</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -53,42 +53,49 @@
         <h4 class="modal-title" id="gridSystemModalLabel">修改产品信息</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal form_login">
+<form class="form-horizontal" id="form-change" action="/businessProductList/change" method="post">
   <div class="form-group">
     <label for="bus-product-type" class="col-sm-3 control-label">产品类型：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+      <input type="text" class="form-control" id="bus-product-type" name="type">
     </div>
   </div>
   <div class="form-group">
     <label for="bus-product-name" class="col-sm-3 control-label">产品名称：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-name" value="18677615595">
+      <input type="text" class="form-control" id="bus-product-name" name="name">
     </div>
   </div>
     <div class="form-group">
-    <label for="bus-product-company" class="col-sm-3 control-label">生产厂家：</label>
+    <label for="bus-product-factory" class="col-sm-3 control-label">生产厂家：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+      <input type="text" class="form-control" id="bus-product-factory" name="factory">
     </div>
   </div>
    <div class="form-group">
     <label for="bus-product-date" class="col-sm-3 control-label">生产日期：</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="bus-product-date" value="18677615595">
+      <input type="date" class="form-control" id="bus-product-date" name="date">
     </div>
   </div>
   <div class="form-group">
     <label for="product-conment" class="col-sm-3 control-label">产品描述：</label>
     <div class="col-sm-8">
-    <textarea class="form-control" rows="3"></textarea>
+    <textarea class="form-control" rows="3" id="bus-product-desc" name="desc"></textarea>
     </div>
   </div>
+  <div class="form-group">
+    <label for="bus-product-name" class="col-sm-3 control-label">产品价格(元)：</label>
+    <div class="col-sm-8">
+      <input type="number" class="form-control" id="bus-product-price" name="price">
+    </div>
+  </div>
+  <input type="hidden" id="bus-product-id" name="id" />
 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">提交修改</button>
+        <button type="button" class="btn btn-primary btn-change-commit">提交修改</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -102,42 +109,48 @@
         <h4 class="modal-title" id="gridSystemModalLabel">增加产品</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal form_login">
+<form class="form-horizontal form_login" id="form-add" action="/businessProductList/add" method="post">
   <div class="form-group">
     <label for="bus-product-type" class="col-sm-3 control-label">产品类型：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+      <input type="text" class="form-control" id="bus-product-type" required name="type">
     </div>
   </div>
   <div class="form-group">
     <label for="bus-product-name" class="col-sm-3 control-label">产品名称：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-name" value="18677615595">
+      <input type="text" class="form-control" id="product-name" required name="name">
     </div>
   </div>
     <div class="form-group">
     <label for="bus-product-company" class="col-sm-3 control-label">生产厂家：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+      <input type="text" class="form-control" id="bus-product-company" required name="factory">
     </div>
   </div>
    <div class="form-group">
     <label for="bus-product-date" class="col-sm-3 control-label">生产日期：</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="bus-product-date" value="18677615595">
+      <input type="date" class="form-control" id="bus-product-date" required name="date">
     </div>
   </div>
   <div class="form-group">
     <label for="product-conment" class="col-sm-3 control-label">产品描述：</label>
     <div class="col-sm-8">
-    <textarea class="form-control" rows="3"></textarea>
+    <textarea class="form-control" rows="3" required name="desc"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="bus-product-name" class="col-sm-3 control-label">产品价格(元)：</label>
+    <div class="col-sm-8">
+      <input type="number" class="form-control" id="bus-product-name" value="" required name="price">
     </div>
   </div>
 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">确认增加</button>
+        <button type="button" class="btn btn-primary btn-add">确认增加</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -147,5 +160,61 @@
 		<script src="js/jquery.dataTables.min.js"></script>
 		<script src="js/dataTables.bootstrap.min.js"></script>
 		<script src="js/index.js"></script>
+
+    <script>
+      $(function() {
+        $.post('/businessProductList', {}, function(data) {
+          var lists = JSON.parse(data);
+
+          $('.product-list > tbody').children().first().remove();
+          lists.map(function(list) {
+            var tr = $('<tr></tr>');
+            tr.append( $('<td></td>').text(list.product_type) );
+            tr.append( $('<td></td>').text(list.product_name) );
+            tr.append( $('<td></td>').text(list.product_description) );
+            tr.append( $('<td></td>').text(list.product_factory) );
+            tr.append( $('<td></td>').text(list.product_date) );
+            tr.append( $('<td></td>').html('<button class="btn btn-conment btn-margin btn-change" data-toggle="modal" href="#gridSystemModalLabel" data-product-id="'+ list.product_id + '" data-product-type="' + list.product_type + '" data-product-name="' + list.product_name + '" data-product-factory="' + list.product_factory + '" data-product-desc="' + list.product_description + '" data-product-price="' + list.product_price + '">修改</button><button class="btn btn-conment btn-margin btn-delete" data-product-id="'+ list.product_id + '">删除</button>') );
+
+            $('.product-list > tbody').append(tr);
+          });
+
+          $('.btn-add').on('click', function(e) {
+            if($('#product-date').val() !== '') {
+              $('#form-add').submit();
+            } else {
+              alert('请选择生产日期');
+            }
+          });
+
+          $('.btn-change').on('click', function(e) {
+            $('#bus-product-type').val($(e.target).data('product-type'));
+            $('#bus-product-name').val($(e.target).data('product-name'));
+            $('#bus-product-factory').val($(e.target).data('product-factory'));
+            $('#bus-product-desc').val($(e.target).data('product-desc'));
+            $('#bus-product-price').val($(e.target).data('product-price'));
+            $('#bus-product-id').val($(e.target).data('product-id'));
+          });
+
+          $('.btn-change-commit').on('click', function(e) {
+            if($('#bus-product-date').val() !== '') {
+              $('#form-change').submit();
+            } else {
+              alert('请选择生产日期');
+            }
+          });
+
+          $('.btn-delete').on('click', function(e) {
+            var product_id = $(e.target).data('product-id');
+
+            $.post('/businessProductList/delete', {
+              product_id: product_id,
+            }, function(data) {
+              location.reload();
+            });
+          });
+        });
+      });
+    </script>
 </body>
 </html>

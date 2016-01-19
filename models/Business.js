@@ -9,6 +9,19 @@ function Business(business) {
 	this.business_level = business.business_level;
 };
 
+Business.get = function(callback) {
+	var sql = [
+		'select *',
+		'from business',
+	].join(' ');
+
+	conn.query(sql, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
 Business.getByBusinessId = function(business_id, callback) {
 	var sql = [
 		'select *',
@@ -65,6 +78,49 @@ Business.add = function(business, callback) {
 		business_name: business.business_name,
 		business_level: 0,
 	};
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
+Business.addAll = function(business, callback) {
+	var sql = 'insert into business set ?';
+
+	var inserts = {
+      business_id: business.business_id,
+      business_name: business.business_name,
+      business_address: business.business_address,
+      business_phone: business.business_phone,
+      business_level: business.business_level,
+    };
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
+Business.update = function(business, callback) {
+	var sql = [
+		'update business',
+		'set business_name = ?,',
+		'business_level = ?,',
+		'business_phone = ?,',
+		'business_address = ?',
+		'where business_id = ?',
+	].join(' ');
+
+	var inserts = [
+		business.business_name,
+		business.business_level,
+		business.business_phone,
+		business.business_address,
+		business.business_id,
+	];
 
 	conn.query(sql, inserts, function(err, rows, fields) {
 	  if (err) throw err;

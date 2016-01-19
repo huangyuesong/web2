@@ -26,11 +26,11 @@ router.post('/delete', function(req, res, next) {
   User.delete(user_id, function(result) {
     if(user_type === 'customer') {
       Client.delete(user_id, function(result) {
-        res.redirect('/userClient');
+        res.status(200).end();
       });
     } else if(user_type === 'seller') {
       Business.delete(user_id, function(result) {
-        res.redirect('/userClient');
+        res.status(200).end();
       });
     }
   });

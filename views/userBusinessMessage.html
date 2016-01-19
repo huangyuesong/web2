@@ -14,9 +14,9 @@
 </head>
 <body>
   <ul class="nav nav-tabs">
-  <li role="presentation"><a href="#">用户信息</a></li>
-  <li role="presentation" class="active"><a href="#">商家信息</a></li>
-  <li role="presentation"><a href="#">产品信息</a></li>
+  <li role="presentation"><a href="/userClient">用户信息</a></li>
+  <li role="presentation" class="active"><a href="javascript:">商家信息</a></li>
+  <li role="presentation"><a href="/userProduct">产品信息</a></li>
 </ul>
   <div class="add">
         <a class="btn btn-conment" href="#add" data-toggle="modal" ><span class="glyphicon glyphicon-plus">新建商家</a>
@@ -55,42 +55,48 @@
         <h4 class="modal-title" id="gridSystemModalLabel">修改商家信息</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal form_login content-top">
+<form class="form-horizontal form_login content-top" id="form-change" action="/userBusiness/update" method="post">
   <div class="form-group">
     <label for="business-name" class="col-sm-3 control-label">商家名称：</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="business-name" value="蛋糕店">
+      <input type="text" class="form-control" id="business-name-change" name="name">
     </div>
   </div>
   <div class="form-group">
     <label for="business-level" class="col-sm-3 control-label" value="旗舰店/一般/小商户">商家级别：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="business-level">
+      <!-- <input type="text" class="form-control" id="business-level"> -->
+      <select class="form-control" id="business-level-change" name="level">
+        <option value="0">旗舰店</option>
+        <option value="1">一般</option>
+        <option value="2">小商户</option>
+      </select>
     </div>
   </div>
   <div class="form-group">
     <label for="business-phone" class="col-sm-3 control-label">客服号码：</label>
     <div class="col-sm-8">
-      <input type="phone" class="form-control" id="business-phone" value="18677615595">
+      <input type="phone" class="form-control" id="business-phone-change" name="phone">
     </div>
   </div>
     <div class="form-group">
     <label for="business-address" class="col-sm-3 control-label">注册地址：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="business-address" value="北京市海淀区西土城路10号北京邮电大学学十三">
+      <input type="text" class="form-control" id="business-address-change" name="address">
+      <input type="hidden" class="form-control" id="business-id-change" name="id">
     </div>
   </div>
-    <div class="form-group">
+  <!-- <div class="form-group">
     <label for="date" class="col-sm-3 control-label">创建时间：</label>
     <div class="col-sm-8">
       <input type="date" class="form-control" id="password">
     </div>
-  </div>
+  </div> -->
 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">提交修改</button>
+        <button type="button" class="btn btn-primary btn-conment btn-change-submit">提交修改</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -104,52 +110,115 @@
         <h4 class="modal-title" id="gridSystemModalLabel">增加商家</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal form_login content-top">
+<form class="form-horizontal form_login content-top" id="form-add" action="/userBusiness/add" method="post">
   <div class="form-group">
     <label for="business-name" class="col-sm-3 control-label">商家名称：</label>
     <div class="col-sm-4">
-      <input type="text" class="form-control" id="business-name" value="蛋糕店">
+      <input type="text" class="form-control" id="business-name" name="name">
     </div>
   </div>
   <div class="form-group">
     <label for="business-level" class="col-sm-3 control-label" value="旗舰店/一般/小商户">商家级别：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="business-level">
+      <!-- <input type="text" class="form-control" id="business-level" name="level"> -->
+      <select class="form-control" name="level">
+        <option value="0">旗舰店</option>
+        <option value="1">一般</option>
+        <option value="2">小商户</option>
+      </select>
     </div>
   </div>
   <div class="form-group">
     <label for="business-phone" class="col-sm-3 control-label">客服号码：</label>
     <div class="col-sm-8">
-      <input type="phone" class="form-control" id="business-phone" value="18677615595">
+      <input type="phone" class="form-control" id="business-phone" name="phone">
     </div>
   </div>
-    <div class="form-group">
-    <label for="business-address" class="col-sm-3 control-label">注册地址：</label>
+  <div class="form-group">
+    <label for="business-address" class="col-sm-3 control-label">商家地址：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="business-address" value="北京市海淀区西土城路10号北京邮电大学学十三">
+      <input type="text" class="form-control" id="business-address" name="address">
     </div>
   </div>
-    <div class="form-group">
+  <div class="form-group">
+    <label for="business-address" class="col-sm-3 control-label">登陆账号：</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="business-password" name="id">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="business-address" class="col-sm-3 control-label">登陆密码：</label>
+    <div class="col-sm-8">
+      <input type="password" class="form-control" id="business-password" name="password">
+    </div>
+  </div>
+  <!-- <div class="form-group">
     <label for="date" class="col-sm-3 control-label">创建时间：</label>
     <div class="col-sm-8">
       <input type="date" class="form-control" id="password">
     </div>
-  </div>
+  </div> -->
 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">确认增加</button>
+        <button type="button" class="btn btn-primary btn-conment btn-add">确认增加</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/dataTables.bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+
+<script>
+  $(function() {
+    $.post('/userBusiness', {}, function(data) {
+      $('.dataTable > tbody').children().first().remove();
+
+      data.map(function(business) {
+        var tr = $('<tr></tr>');
+        tr.append( $('<td></td>').text(business.business_name) );
+        tr.append( $('<td></td>').text(business.business_level) );
+        tr.append( $('<td></td>').text(business.business_phone) );
+        tr.append( $('<td></td>').text(business.business_address) );
+        tr.append( $('<td></td>').text(business.business_create_time) );
+        tr.append( $('<td></td>').html('<button class="btn btn-conment btn-margin btn-change" data-toggle="modal" href="#gridSystemModalLabel" data-business-id="' + business.business_id + '" data-business-name="' + business.business_name + '" data-business-phone="' + business.business_phone + '" data-business-address="' + business.business_address + '" data-business-level="' + business.business_levelCode + '">修改</button><button class="btn btn-conment btn-margin btn-delete" data-business-id="' + business.business_id + '">删除</button>') );
+
+        $('.dataTable > tbody').append(tr);
+      });
+
+      $('.btn-delete').on('click', function(e) {
+        var business_id = $(e.target).data('business-id');
+
+        $.post('/userBusiness/delete', {
+          business_id: business_id,
+        }, function(data) {
+          location.reload();
+        });
+      });
+
+      $('.btn-add').on('click', function(e) {
+        $('#form-add').submit();
+      });
+
+      $('.btn-change').on('click', function(e) {
+        $('#business-id-change').val($(e.target).data('business-id'));
+        $('#business-name-change').val($(e.target).data('business-name'));
+        $('#business-level-change').val($(e.target).data('business-level'));
+        $('#business-phone-change').val($(e.target).data('business-phone'));
+        $('#business-address-change').val($(e.target).data('business-address'));
+      });
+
+      $('.btn-change-submit').on('click', function(e) {
+        $('#form-change').submit();
+      });
+    });
+  });
+</script>
 
 </body>
 </html>

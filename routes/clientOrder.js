@@ -33,7 +33,7 @@ router.post('/', function(req, res, next) {
 
   				orderInfo.map(function(order) {
   					for(var i = 0; i < productInfo.length; ++i) {
-  						if(productInfo[i].product_id === order.product_id) {
+  						if(String(productInfo[i].product_id) === order.product_id) {
   							order.product_name = productInfo[i].product_name;
   						}
   					}

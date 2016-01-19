@@ -25,12 +25,29 @@ Product.get = function(callback) {
 	});
 };
 
+Product.delete = function(product_id, callback) {
+	var sql = [
+		'delete',
+		'from products',
+		'where product_id = ?',
+	].join(' ');
+
+	var inserts = [product_id];
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
 Product.add = function(product, callback) {
 	var sql = 'insert into products set ?';
 
 	var inserts = {
 		product_type: product.product_type,
 		product_name: product.product_name,
+		product_moder: product.product_moder,
 		product_description: product.product_description,
 		product_factory: product.product_factory,
 		product_price: product.product_price,
@@ -49,6 +66,7 @@ Product.update = function(product, callback) {
 		'update products',
 		'set product_type = ?,',
 		'product_name = ?,',
+		'product_moder = ?,',
 		'product_factory = ?,',
 		'product_date = ?,',
 		'product_description = ?,',
@@ -59,6 +77,7 @@ Product.update = function(product, callback) {
 	var inserts = [
 		product.product_type,
 		product.product_name,
+		product.product_moder,
 		product.product_factory,
 		product.product_date,
 		product.product_description,

@@ -31,6 +31,7 @@ app.use('/businessCenter', require('./routes/businessCenter'));
 app.use('/businessProductList', require('./routes/businessProductList'));
 app.use('/userClient', require('./routes/userClient'));
 app.use('/userBusiness', require('./routes/userBusiness'));
+app.use('/userProduct', require('./routes/userProduct'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

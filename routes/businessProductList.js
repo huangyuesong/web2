@@ -30,6 +30,7 @@ router.post('/', function(req, res, next) {
   						list.product_factory = products[i].product_factory;
   						list.product_price = products[i].product_price;
   						list.product_date = time.year() + '年' + (time.month() + 1) + '月' + time.date() + '日';
+              list.dateFormat = time.format('YYYY-MM-DD');
   					}
   				}
   			});

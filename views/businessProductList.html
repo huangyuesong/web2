@@ -30,6 +30,7 @@
                     <th>产品描述</th>
                     <th>生产厂家</th>
                     <th>生产日期</th>
+                    <th>单价(元)</th>
                     <th>操作</th>
                     </tr>
                 </thead>
@@ -40,6 +41,7 @@
                     <td><p class="busi-pro-dec">老坛酸菜牛肉面</p></td>
                     <td>康师傅</td>
                     <td>2016-01-17</td>
+                    <td>1.00</td>
                     <td ><button class="btn btn-conment btn-margin btn-change" data-toggle="modal" href="#gridSystemModalLabel">修改</button><button class="btn btn-conment btn-margin btn-delete">删除</button></td>
                     </tr>
                 </tbody>
@@ -174,7 +176,8 @@
             tr.append( $('<td></td>').text(list.product_description) );
             tr.append( $('<td></td>').text(list.product_factory) );
             tr.append( $('<td></td>').text(list.product_date) );
-            tr.append( $('<td></td>').html('<button class="btn btn-conment btn-margin btn-change" data-toggle="modal" href="#gridSystemModalLabel" data-product-id="'+ list.product_id + '" data-product-type="' + list.product_type + '" data-product-name="' + list.product_name + '" data-product-factory="' + list.product_factory + '" data-product-desc="' + list.product_description + '" data-product-price="' + list.product_price + '">修改</button><button class="btn btn-conment btn-margin btn-delete" data-product-id="'+ list.product_id + '">删除</button>') );
+            tr.append( $('<td></td>').text(list.product_price.toFixed(2)) );
+            tr.append( $('<td></td>').html('<button class="btn btn-conment btn-margin btn-change" data-toggle="modal" href="#gridSystemModalLabel" data-product-id="'+ list.product_id + '" data-product-type="' + list.product_type + '" data-product-name="' + list.product_name + '" data-product-factory="' + list.product_factory + '" data-product-desc="' + list.product_description + '" data-product-price="' + list.product_price + '" data-date-format="' + list.dateFormat + '">修改</button><button class="btn btn-conment btn-margin btn-delete" data-product-id="'+ list.product_id + '">删除</button>') );
 
             $('.product-list > tbody').append(tr);
           });
@@ -193,15 +196,12 @@
             $('#bus-product-factory').val($(e.target).data('product-factory'));
             $('#bus-product-desc').val($(e.target).data('product-desc'));
             $('#bus-product-price').val($(e.target).data('product-price'));
+            $('#bus-product-date').val($(e.target).data('date-format'));
             $('#bus-product-id').val($(e.target).data('product-id'));
           });
 
           $('.btn-change-commit').on('click', function(e) {
-            if($('#bus-product-date').val() !== '') {
-              $('#form-change').submit();
-            } else {
-              alert('请选择生产日期');
-            }
+            $('#form-change').submit();
           });
 
           $('.btn-delete').on('click', function(e) {

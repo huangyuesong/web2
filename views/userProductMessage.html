@@ -14,9 +14,9 @@
 </head>
 <body>
 <ul class="nav nav-tabs">
-  <li role="presentation"><a href="#">用户家信息</a></li>
-  <li role="presentation"><a href="#">商家信息</a></li>
-  <li role="presentation" class="active"><a href="#">产品列表</a></li>
+  <li role="presentation"><a href="/userClient">用户信息</a></li>
+  <li role="presentation"><a href="/userBusiness">商家信息</a></li>
+  <li role="presentation" class="active"><a href="javascript:">产品列表</a></li>
 </ul>
 	<div class="add">
         <a class="btn btn-conment" href="#add" data-toggle="modal" ><span class="glyphicon glyphicon-plus">新建产品</a>
@@ -33,6 +33,7 @@
                     <th>生产厂家</th>
                     <th>生产日期</th>
                     <th>创建时间</th>
+                    <th>单价(元)</th>
                     <th>操作</th>
                     </tr>
                 </thead>
@@ -45,6 +46,7 @@
                     <td>广东美丽服装厂</td>
                     <td>20160117</td>
                     <td>20160117</td>
+                    <td>1.00</td>
                     <td ><button class="btn btn-conment btn-margin" data-toggle="modal" href="#gridSystemModalLabel">修改</button><button class="btn btn-conment btn-margin">删除</button></td>
                     </tr>
                 </tbody>
@@ -58,48 +60,55 @@
         <h4 class="modal-title" id="gridSystemModalLabel">修改产品信息</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal form_login">
+<form class="form-horizontal form_login" id="form-change" action="/userProduct/update" method="post">
   <div class="form-group">
     <label for="product-type" class="col-sm-3 control-label">产品类型：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+      <input type="text" class="form-control" id="product-type-change" name="type">
     </div>
   </div>
   <div class="form-group">
     <label for="product-name" class="col-sm-3 control-label">产品名称：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="product-name" value="18677615595">
+      <input type="text" class="form-control" id="product-name-change" name="name">
     </div>
   </div>
     <div class="form-group">
     <label for="product-type" class="col-sm-3 control-label">产品型号：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="product-type" value="18677615595">
+      <input type="text" class="form-control" id="product-moder-change" name="moder">
     </div>
   </div>
     <div class="form-group">
     <label for="bus-product-company" class="col-sm-3 control-label">生产厂家：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+      <input type="text" class="form-control" id="product-factory-change" name="factory">
     </div>
   </div>
    <div class="form-group">
     <label for="product-date" class="col-sm-3 control-label">生产日期：</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="product-date" value="18677615595">
+      <input type="date" class="form-control" id="product-date-change" name="date">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="product-date" class="col-sm-3 control-label">单价(元)：</label>
+    <div class="col-sm-8">
+      <input type="number" class="form-control" id="product-price-change" name="price">
     </div>
   </div>
   <div class="form-group">
     <label for="product-conment" class="col-sm-3 control-label">产品描述：</label>
     <div class="col-sm-8">
-    <textarea class="form-control" rows="3"></textarea>
+    <textarea class="form-control" rows="3" id="product-desc-change" name="desc"></textarea>
+    <input type="hidden" class="form-control" id="product-id-change" name="id">
     </div>
   </div>
 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">提交修改</button>
+        <button type="button" class="btn btn-primary btn-conment btn-change-submit">提交修改</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -113,56 +122,118 @@
         <h4 class="modal-title" id="gridSystemModalLabel">增加产品</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal form_login">
+<form class="form-horizontal form_login" id="form-add" action="/userProduct/add" method="post">
   <div class="form-group">
     <label for="product-type" class="col-sm-3 control-label">产品类型：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+      <input type="text" class="form-control" id="product-type" name="type">
     </div>
   </div>
   <div class="form-group">
     <label for="product-name" class="col-sm-3 control-label">产品名称：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="product-name" value="18677615595">
+      <input type="text" class="form-control" id="product-name" name="name">
     </div>
   </div>
     <div class="form-group">
     <label for="product-type" class="col-sm-3 control-label">产品型号：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="product-type" value="18677615595">
+      <input type="text" class="form-control" id="product-type" name="moder">
     </div>
   </div>
     <div class="form-group">
     <label for="bus-product-company" class="col-sm-3 control-label">生产厂家：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+      <input type="text" class="form-control" id="product-factory" name="factory">
     </div>
   </div>
    <div class="form-group">
     <label for="product-date" class="col-sm-3 control-label">生产日期：</label>
     <div class="col-sm-8">
-      <input type="date" class="form-control" id="product-date" value="18677615595">
+      <input type="date" class="form-control" id="product-date" name="date">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="product-date" class="col-sm-3 control-label">单价(元)：</label>
+    <div class="col-sm-8">
+      <input type="number" class="form-control" id="product-price" name="price">
     </div>
   </div>
   <div class="form-group">
     <label for="product-conment" class="col-sm-3 control-label">产品描述：</label>
     <div class="col-sm-8">
-    <textarea class="form-control" rows="3"></textarea>
+    <textarea class="form-control" rows="3" id="product-desc" name="desc"></textarea>
     </div>
   </div>
 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">确认增加</button>
+        <button type="button" class="btn btn-primary btn-conment btn-add">确认增加</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-		<script src="js/jquery.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.dataTables.min.js"></script>
-		<script src="js/dataTables.bootstrap.min.js"></script>
-		<script src="js/index.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+
+<script>
+  $(function() {
+    $.post('/userProduct', {}, function(data) {
+      $('.dataTable > tbody').children().first().remove();
+
+      data.map(function(product) {
+        var tr = $('<tr></tr>');
+        tr.append( $('<td></td>').text(product.product_type) );
+        tr.append( $('<td></td>').text(product.product_name) );
+        tr.append( $('<td></td>').text(product.product_moder) );
+        tr.append( $('<td></td>').text(product.product_description) );
+        tr.append( $('<td></td>').text(product.product_factory) );
+        tr.append( $('<td></td>').text(product.product_date) );
+        tr.append( $('<td></td>').text(product.product_create_time) );
+        tr.append( $('<td></td>').text(product.product_price.toFixed(2)) );
+        tr.append( $('<td></td>').html('<button class="btn btn-conment btn-margin btn-change" data-toggle="modal" href="#gridSystemModalLabel" data-product-id="' + product.product_id + '" data-product-type="' + product.product_type + '" data-product-name="' + product.product_name + '" data-product-moder="' + product.product_moder + '" data-product-factory="' + product.product_factory + '" data-product-price="' + product.product_price + '" data-product-desc="' + product.product_description + '" data-product-date-format="' + product.dateFormat + '">修改</button><button class="btn btn-conment btn-margin btn-delete" data-product-id="' + product.product_id + '">删除</button>') );
+
+        $('.dataTable > tbody').append(tr);
+      });
+
+      $('.btn-delete').on('click', function(e) {
+        var product_id = $(e.target).data('product-id');
+
+        $.post('/userProduct/delete', {
+          product_id: product_id,
+        }, function(data) {
+          location.reload();
+        });
+      });
+
+      $('.btn-add').on('click', function(e) {
+        if($('#product-date').val() === '') {
+          alert('请选择生产日期');
+        } else {
+          $('#form-add').submit();
+        }
+      });
+
+      $('.btn-change').on('click', function(e) {
+        $('#product-id-change').val($(e.target).data('product-id'));
+        $('#product-type-change').val($(e.target).data('product-type'));
+        $('#product-name-change').val($(e.target).data('product-name'));
+        $('#product-moder-change').val($(e.target).data('product-moder'));
+        $('#product-factory-change').val($(e.target).data('product-factory'));
+        $('#product-date-change').val($(e.target).data('product-date-format'));
+        $('#product-price-change').val($(e.target).data('product-price'));
+        $('#product-desc-change').val($(e.target).data('product-desc'));
+      });
+
+      $('.btn-change-submit').on('click', function(e) {
+        $('#form-change').submit();
+      });
+    });
+  });
+</script>
 </body>
 </html>

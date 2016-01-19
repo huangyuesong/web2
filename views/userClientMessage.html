@@ -11,11 +11,12 @@
 <link href="css/jquery.dataTables.min.css" rel="stylesheet">
 <link href="css/dataTables.bootstrap.min.css" rel="stylesheet">
 <link href="css/index.css" rel="stylesheet">
+</head>
 <body>
   <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="#">用户信息</a></li>
-  <li role="presentation"><a href="#">商家信息</a></li>
-  <li role="presentation"><a href="#">产品信息</a></li>
+  <li role="presentation"><a href="/userBusiness">商家信息</a></li>
+  <li role="presentation"><a href="/userProduct">产品信息</a></li>
 </ul>
   <div class="add">
         <a class="btn btn-conment" href="#add" data-toggle="modal" ><span class="glyphicon glyphicon-plus">增加用户</a>
@@ -50,30 +51,31 @@
         <h4 class="modal-title" id="gridSystemModalLabel">修改用户信息</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal form_login">
+<form class="form-horizontal form_login" id="form-change" action="/userClient/update" method="post">
   <div class="form-group">
     <label for="bus-product-type" class="col-sm-3 control-label">用户类型：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+      <input type="text" class="form-control" id="user-type-change" value="18677615595" disabled>
     </div>
   </div>
   <div class="form-group">
     <label for="bus-product-name" class="col-sm-3 control-label">用户名：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-name" value="18677615595">
+      <input type="text" class="form-control" id="user-name-change" value="18677615595" disabled>
     </div>
   </div>
     <div class="form-group">
     <label for="bus-product-company" class="col-sm-3 control-label">密码：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+      <input type="password" class="form-control" id="user-password-change" name="password">
+      <input type="hidden" id="user-id-change" name="id">
     </div>
   </div>
 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">提交修改</button>
+        <button type="button" class="btn btn-primary btn-conment btn-change-submit">提交修改</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -87,40 +89,89 @@
         <h4 class="modal-title" id="gridSystemModalLabel">增加用户</h4>
       </div>
       <div class="modal-body">
-<form class="form-horizontal form_login">
+<form class="form-horizontal form_login" id="form-add" action="/userClient/add" method="post">
   <div class="form-group">
     <label for="bus-product-type" class="col-sm-3 control-label">用户类型：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-type" value="18677615595">
+      <!-- <input type="text" class="form-control" id="bus-product-type" name="type"> -->
+      <select class="form-control" name="type">
+        <option>customer</option>
+        <option>seller</option>
+
+      </select>
     </div>
   </div>
   <div class="form-group">
     <label for="bus-product-name" class="col-sm-3 control-label">用户名：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-name" value="18677615595">
+      <input type="text" class="form-control" id="bus-product-name" name="name">
     </div>
   </div>
     <div class="form-group">
     <label for="bus-product-company" class="col-sm-3 control-label">密码：</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="bus-product-company" value="18677615595">
+      <input type="password" class="form-control" id="bus-product-company" name="password">
     </div>
   </div>
 </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-        <button type="button" class="btn btn-primary btn-conment">确认增加</button>
+        <button type="button" class="btn btn-primary btn-conment btn-add">确认增加</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
 <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/dataTables.bootstrap.min.js"></script>
-    <script src="js/index.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+
+<script>
+  $(function() {
+    $.post('/userClient', {}, function(data) {
+      $('.dataTable > tbody').children().first().remove();
+
+      data.map(function(user) {
+        var tr = $('<tr></tr>');
+        tr.append( $('<td></td>').text(user.user_type) );
+        tr.append( $('<td></td>').text(user.user_name) );
+        tr.append( $('<td></td>').text(user.user_password) );
+        tr.append( $('<td></td>').html('<button class="btn btn-conment btn-margin btn-change" data-toggle="modal" href="#gridSystemModalLabel" data-user-id="' + user.user_id + '" data-user-name="' + user.user_name + '" data-user-type="' + user.user_type + '">修改</button><button class="btn btn-conment btn-margin btn-delete" data-user-id="' +  user.user_id+ '" data-user-type="' + user.user_type + '">删除</button>') );
+
+        $('.dataTable > tbody').append(tr);
+      });
+
+      $('.btn-delete').on('click', function(e) {
+        var user_id = $(e.target).data('user-id');
+        var user_type = $(e.target).data('user-type');
+
+        $.post('/userClient/delete', {
+          user_id: user_id,
+          user_type: user_type,
+        }, function(data) {
+          location.reload();
+        });
+      });
+
+      $('.btn-add').on('click', function(e) {
+        $('#form-add').submit();
+      });
+
+      $('.btn-change').on('click', function(e) {
+        $('#user-type-change').val($(e.target).data('user-type'));
+        $('#user-name-change').val($(e.target).data('user-name'));
+        $('#user-id-change').val($(e.target).data('user-id'));
+      });
+
+      $('.btn-change-submit').on('click', function(e) {
+        $('#form-change').submit();
+      });
+    });
+  });
+</script>
 
 </body>
 </html>

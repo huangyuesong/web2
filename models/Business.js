@@ -41,4 +41,36 @@ Business.savePhoneChange = function(business_id, business_phone, callback) {
 	});
 };
 
+Business.delete = function(business_id, callback) {
+	var sql = [
+		'delete',
+		'from business',
+		'where business_id = ?',
+	].join(' ');
+
+	var inserts = [business_id];
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
+Business.add = function(business, callback) {
+	var sql = 'insert into business set ?';
+
+	var inserts = {
+		business_id: business.business_id,
+		business_name: business.business_name,
+		business_level: 0,
+	};
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
 module.exports = Business;

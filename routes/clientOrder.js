@@ -18,12 +18,12 @@ router.post('/', function(req, res, next) {
   	var client_id = user.user_id;
 
   	Client.get(function(clients) {
-  		clients.filter(function(client) {
+  		clients = clients.filter(function(client) {
   			return client.clientid === client_id;
   		});
 
   		Order.get(function(orders) {
-  			orders.filter(function(order) {
+  			orders = orders.filter(function(order) {
   				return order.client_id === client_id;
   			});
 

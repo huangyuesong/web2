@@ -22,4 +22,36 @@ Client.get = function(callback) {
 	});
 };
 
+Client.delete = function(client_id, callback) {
+	var sql = [
+		'delete',
+		'from clients',
+		'where client_id = ?',
+	].join(' ');
+
+	var inserts = [client_id];
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
+Client.add = function(client, callback) {
+	var sql = 'insert into clients set ?';
+
+	var inserts = {
+		client_id: client.client_id,
+		client_name: client.client_name,
+		client_level: 0,
+	};
+
+	conn.query(sql, inserts, function(err, rows, fields) {
+	  if (err) throw err;
+
+	  return callback(rows);
+	});
+};
+
 module.exports = Client;

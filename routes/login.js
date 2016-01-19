@@ -23,7 +23,7 @@ router.post('/', function(req, res, next) {
 
 			if(user.user_type === 'admin') {
 				res.json({
-					url: '/login',
+					url: '/userClient',
 				});
 			} else if(user.user_type === 'customer') {
 				res.json({

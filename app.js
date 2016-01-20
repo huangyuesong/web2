@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/', require('./routes/notLogin'));
+app.use('/*', require('./routes/notLogin'));
 app.use('/login', require('./routes/login'));
 app.use('/clientOrder', require('./routes/clientOrder'));
 app.use('/comment', require('./routes/comment'));

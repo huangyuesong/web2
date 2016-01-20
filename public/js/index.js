@@ -13,7 +13,7 @@ $(function() {
             sInfoPostFix: "",
             sSearch: "任意信息搜索:",
             sUrl: "",
-            sEmptyTable: "该月报表为空",
+            sEmptyTable: "表中数据为空",
             sLoadingRecords: "载入中...",
             sInfoThousands: ",",
             oPaginate: {

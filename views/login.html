@@ -39,7 +39,7 @@
     });
 
     $('.btn-conment').on('click', function(e) {
-      $.post('login', {
+      $.post('/login', {
         username: $('#name').val(),
         password: $('#password').val(),
       }, function(data) {

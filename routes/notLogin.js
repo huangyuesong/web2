@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   if(req.cookies === undefined || req.cookies.user_id === undefined) {
-  	res.redirect('/login');
+  	res.render('login');
   }
   next();
 });
